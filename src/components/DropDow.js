@@ -10,7 +10,7 @@ useEffect(()=>{
         .then(response => response.json())
         .then(states => setStates (states))
          console.log(states)
-    }, []) 
+    }, [])
 
 return (   
         <select id = "state">
