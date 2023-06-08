@@ -15,8 +15,8 @@ function handleCreate(e){
 }
   
 useEffect(() => {
-    //Axios.get("http://localhost:3001/equiplist")
-    Axios.get("https://equipback.herokuapp.com/equiplist")
+    //Axios.get("/equiplist")
+    Axios.get("https://equip-vercel-theta.vercel.app/equiplist")
     .then((response) =>{
     setInvent(response.data.inventario);
     });

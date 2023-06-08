@@ -7,7 +7,7 @@ const [equipas, setEquipas] = useState('');
       
     useEffect(() => {
         //Axios.get("http://localhost:3001/equiplist")
-       Axios.get("https://equipback.herokuapp.com/equiplist")
+       Axios.get("equip-vercel-theta.vercel.app/equiplist")
         .then((response) =>{
         setEquipas(response.data.inventario);
         
