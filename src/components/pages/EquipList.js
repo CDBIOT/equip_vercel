@@ -5,15 +5,19 @@ import styles from "./Equip.module.css"
 function EquipList(equips) {
 const [equipas, setEquipas] = useState('');
       
+const options = {
+    method: 'GET',
+    cache: 'default',
+    header: { 'Access-Control-Allow-Origin':'*',mode: 'cors',
+    'Content-Type': 'application/json' },
+    redirect: 'follow'
+    };
+    
 useEffect(() => {
         //Axios.get("http://localhost:3001/equiplist")
-       Axios.get("equip-vercel-theta.vercel.app/equiplist"),{
-      method: 'GET',
-      header: { 'Access-Control-Allow-Origin':'*',mode: 'cors',
-        'Content-Type': 'application/json' }}
+       Axios.get("equip-vercel-theta.vercel.app/equiplist",options)
         .then((response) =>{
         setEquipas(response.data.inventario);
-        
         });
     }, [])
 
