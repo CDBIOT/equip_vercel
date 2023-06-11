@@ -14,16 +14,20 @@ function handleCreate(e){
     alert(selectValue)
 }
   
-useEffect(() => {
-    //Axios.get("/equiplist")
-    Axios.get("https://equip-vercel-theta.vercel.app/equiplist")
-    .then((response) =>{
-    setInvent(response.data.inventario);
-    });
-    {  setLoading(true)}
-    
+async function equipList(){
+     Axios.get("https://equip-vercel-theta.vercel.app/equiplist"),{
+      method: 'GET',
+      header: { 'Access-Control-Allow-Origin':'*',mode: 'cors',
+        'Content-Type': 'application/json' },
+     }.then(resp=>{ setInvent(response.data.inventario);
+     }).catch(err=> console.log(err))
+    } 
+    {setLoading(true)}
 
-}, []) 
+useEffect(() => {
+    equipList();
+    }, [])
+    
 
 return (   
     <div className='EquipShow'>
