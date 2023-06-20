@@ -2,20 +2,20 @@ import React, { useState , useEffect } from "react";
 import Axios from "axios";
 import styles from "./Equip.module.css"
 
-function EquipList(equips) {
+function EquipList() {
 const [equipas, setEquipas] = useState('');
       
 const options = {
     method: 'GET',
     cache: 'default',
     header: { 'Access-Control-Allow-Origin':'*',mode: 'cors',
-    'Content-Type': 'application/json' },
+    'Content-Type':  '*/*' },
     redirect: 'follow'
     };
     
 useEffect(() => {
         //Axios.get("http://localhost:3001/equiplist")
-       Axios.get("equip-vercel-theta.vercel.app/equiplist",options)
+       Axios.get("equips-server.vercel.app/equips",options)
         .then((response) =>{
         setEquipas(response.data.inventario);
         });

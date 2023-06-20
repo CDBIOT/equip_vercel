@@ -9,21 +9,25 @@ const [invent, setInvent] = useState([]);
 const [selectValue, setSelectValue] = useState([])
 const [loading, setLoading] = useState(false);
 
-function handleCreate(e){
+function equipList(e){
     e.preventDefault()
     alert(selectValue)
-}
-  
-async function equipList(){
-     Axios.get("https://equip-vercel-theta.vercel.app/equiplist"),{
-      method: 'GET',
-      header: { 'Access-Control-Allow-Origin':'*',mode: 'cors',
-        'Content-Type': 'application/json' },
-     }.then(resp=>{ setInvent(response.data.inventario);
-     }).catch(err=> console.log(err))
-    } 
-    {setLoading(true)}
 
+ 
+const options = {
+    method: 'GET',
+    cache: 'default',
+    header: { 'Access-Control-Allow-Origin':'*',mode: 'cors',
+    'Content-Type': '*/*' },
+    redirect: 'follow'
+    };
+    
+     Axios.get("https://equips-server.vercel.app/equips",options)
+     .then(resp=>{ setInvent(resp.data.inventario);
+     }).catch(err=> console.log(err))
+    
+    {setLoading(true)}
+}
 useEffect(() => {
     equipList();
     }, [])
