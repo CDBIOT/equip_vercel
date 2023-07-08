@@ -39,7 +39,8 @@ return (
       
         <select id = "inventarios" value={selectValue} onChange={e => setSelectValue(e.target.value)}>
         <option value = "">Selecione o equipamento...</option>
-        {invent.map(invent => {
+       { invent.length >0 ?(
+        invent.map(invent => {
 
         return (
                 <option  value={invent.id}key={invent.id}> 
@@ -50,7 +51,7 @@ return (
                 {invent.SERIAL }
                 {invent.LOCALIZACAO }</option>
                 )  
-        })}
+        })):(!loading && <Loader/>)}
          {!loading && <Loader/>}
         </select>
         <h1>{selectValue}</h1>
