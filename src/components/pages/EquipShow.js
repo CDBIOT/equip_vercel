@@ -10,7 +10,7 @@ const [selectValue, setSelectValue] = useState([])
 const [loading, setLoading] = useState(false);
 
 function equipList(e){
-    e.preventDefault()
+   // e.preventDefault()
     alert(selectValue)
 
  
