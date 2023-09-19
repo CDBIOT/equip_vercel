@@ -14,7 +14,6 @@ const options = {
     };
     
 useEffect(() => {
-        //Axios.get("http://localhost:3001/equiplist")
        Axios.get("equips-server.vercel.app/equips",options)
         .then((response) =>{
         setEquipas(response.data.inventario);
