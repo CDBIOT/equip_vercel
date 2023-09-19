@@ -15,12 +15,11 @@ function equipList(e){
 
  
 const options = {
-    method: 'GET',
+    'Access-Control-Allow-Origin':'*',
+    method: 'GET',	
+    mode: 'cors',
     cache: 'default',
-    header: { 'Access-Control-Allow-Origin':'*',mode: 'cors',
-    'Content-Type': '*/*' },
-    redirect: 'follow'
-    };
+    'Content-Type': 'application/json'}
     
      Axios.get("https://equips-server.vercel.app/equips",options)
      .then(resp=>{ setInvent(resp.data.inventario);

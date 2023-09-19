@@ -6,12 +6,11 @@ function EquipList() {
 const [equipas, setEquipas] = useState('');
       
 const options = {
-    method: 'GET',
+    'Access-Control-Allow-Origin':'*',
+    method: 'GET',	
+    mode: 'cors',
     cache: 'default',
-    header: { 'Access-Control-Allow-Origin':'*',mode: 'cors',
-    'Content-Type':  '*/*' },
-    redirect: 'follow'
-    };
+    'Content-Type': 'application/json'}
     
 useEffect(() => {
        Axios.get("equips-server.vercel.app/equips",options)
